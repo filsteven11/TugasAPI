@@ -1,0 +1,16 @@
+package Controller
+
+import (
+	"database/sql"
+	"log"
+)
+
+var db *sql.DB
+
+func Connect() *sql.DB {
+	db, err := sql.Open("mysql", "root:@tcp(localhost:3306)/APIMUX?parseTime=true&loc=Asia%2FJakarta")
+	if err != nil {
+		log.Fatal(err)
+	}
+	return db
+}
